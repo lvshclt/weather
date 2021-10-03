@@ -1,0 +1,59 @@
+* {
+  padding: 0;
+  margin: 0;
+  color: white;
+}
+.hidden {
+  display: none;
+}
+
+html {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+input,
+button {
+  padding: 10px 30px;
+  background-color: rgba(218, 216, 216, 0.4);
+  border-radius: 30px;
+  margin: 30px 5px;
+  border: 0px solid transparent;
+}
+input::placeholder {
+  color: white;
+}
+button:hover {
+  background-color: black;
+}
+
+#todo-form input {
+  width: 400px;
+}
+
+#clock {
+  font-size: 100px;
+}
+
+li {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+li input,
+li button {
+  margin: 10px;
+  padding: 3px 10px;
+}
