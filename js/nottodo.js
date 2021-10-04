@@ -30,16 +30,49 @@ const deleteNotToDoLi = (e) => {
   console.log('한개 제거함');
   console.log(notToDoArr, localStorage);
 };
+const editContent = (e) => {
+  e.preventDefault();
+  const previousValue = e.target.parentElement.firstChild.innerText;
+  const typed = e.target.children[0].value;
+  console.log(previousValue, typed);
+  notToDoArr = notToDoArr.map((v) => (v === previousValue ? typed : v));
+  $notToDoUl.innerHTML = '';
+  notToDoArr.forEach((v) => {
+    drawNotToDo(v);
+  });
+
+  console.log(notToDoArr);
+  localStorage.setItem(NOTTODO_KEY, notToDoArr);
+};
+const editNotToDoLi = (e) => {
+  const target = e.target.parentElement;
+  const $editForm = target.querySelector('form');
+  target.querySelector('span').classList.add('hidden');
+  $editForm.classList.remove('hidden');
+
+  $editForm.addEventListener('submit', editContent);
+  // notToDoArr = notToDoArr.map((v,i) => {if(v===target){v=}});
+};
 const drawNotToDo = (value) => {
   const $notLi = document.createElement('li');
   const $notSpan = document.createElement('span');
   $notSpan.innerText = value;
   const $notBtn = document.createElement('button');
+  const $notBtnEdit = document.createElement('button');
+
+  const $editForm = document.createElement('form');
+  const $editInput = document.createElement('input');
+  $editForm.append($editInput);
+  $editForm.classList.add('hidden');
   $notBtn.innerText = 'X';
+  $notBtnEdit.innerText = 'edit';
   $notLi.append($notSpan);
+  $notLi.append($editForm);
   $notLi.append($notBtn);
+  $notLi.append($notBtnEdit);
   $notToDoUl.append($notLi);
   $notBtn.addEventListener('click', deleteNotToDoLi);
+  $notBtnEdit.addEventListener('click', editNotToDoLi);
 };
 
 if (localStorage.getItem(NOTTODO_KEY)) {

@@ -21,17 +21,26 @@ const deleteLi = (clickEventObject) => {
   saveToDos();
   $selectedLi.remove();
 };
+const editLi = (clickEventObject) => {
+  const $selectedLi = clickEventObject.target.parentElement;
+  saveToDos();
+  $selectedLi.remove();
+};
 
 const drawToDo = (newToDoObj) => {
   const $li = document.createElement('li');
   const $span = (document.createElement('span').innerText = newToDoObj.text);
   const $button = document.createElement('button');
+  const $editButton = document.createElement('button');
   $li.id = newToDoObj.id;
   $button.innerText = 'X';
+  $editButton.innerText = '@';
   $li.append($span);
   $li.append($button);
+  $li.append($editButton);
   $toDoList.append($li);
   $button.addEventListener('click', deleteLi);
+  $button.addEventListener('click', editLi);
 };
 
 const onToDoSubmit = (e) => {

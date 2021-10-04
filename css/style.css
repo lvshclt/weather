@@ -86,3 +86,6 @@ li button {
 #greeting {
   margin-bottom: 30px;
 }
+li input {
+  width: 120px !important;
+}
