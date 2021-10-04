@@ -2,6 +2,8 @@
   padding: 0;
   margin: 0;
   color: white;
+  /* border: 3px solid white; */
+  font-family: 'Playfair Display', serif;
 }
 .hidden {
   display: none;
@@ -12,6 +14,7 @@ html {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  overflow: hidden;
 }
 
 body {
@@ -37,23 +40,49 @@ input::placeholder {
 }
 button:hover {
   background-color: black;
+  color: orange;
 }
-
-#todo-form input {
-  width: 400px;
+button {
+  background-color: orange;
+  color: black;
+}
+#container input {
+  width: 230px;
+  text-align: center;
 }
 
 #clock {
   font-size: 100px;
+  margin-bottom: 100px;
 }
 
 li {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 li input,
 li button {
   margin: 10px;
   padding: 3px 10px;
+}
+#container {
+  display: flex;
+  width: 600px;
+  justify-content: space-between;
+}
+#weather {
+  position: fixed;
+  bottom: 30px;
+}
+#reset {
+  position: fixed;
+  padding: 10px 20px;
+  margin: 0;
+  top: 10px;
+  right: 10px;
+}
+
+#greeting {
+  margin-bottom: 30px;
 }

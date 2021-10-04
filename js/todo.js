@@ -9,6 +9,8 @@ const TODOS_KEY = 'todos';
 
 let toDos = [];
 
+const savedToDos = JSON.parse(localStorage.getItem(TODOS_KEY));
+
 const saveToDos = () => {
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 };
@@ -46,8 +48,6 @@ const onToDoSubmit = (e) => {
 };
 
 $toDoForm.addEventListener('submit', onToDoSubmit);
-
-const savedToDos = JSON.parse(localStorage.getItem(TODOS_KEY));
 
 savedToDos &&
   savedToDos.forEach((v) => {
